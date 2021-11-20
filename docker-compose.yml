@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  rootnode:
+    container_name: archive-node
+    image: fuocnetwork/archivenode
+    environment:
+      - IP=127.0.0.1
+      - PORT=30301
+      - STATS_NAME=fuo-archive-node
+      - STATS_SECRET=secret
+      - STATS_HOST=host
+      - STATS_PORT=3000
+      - ENODE=enode
+    network_mode: "host"
+    restart: always
+    volumes:
+      - ./node:/root/.ethereum
